@@ -22,6 +22,23 @@
 
   <style>
 
+:root {
+      --base: #ffc600;
+      --spacing: 10px;
+      --blur: 10px;
+    }
+
+    img {
+      padding: var(--spacing);
+      background: var(--base);
+      filter: blur(var(--blur));
+    }
+
+    .hl {
+      color: var(--base);
+    }
+
+
     /*
       misc styles, nothing to do with CSS variables
     */
@@ -45,6 +62,38 @@
   </style>
 
   <script>
+    const spacing = document.querySelector('#spacing');
+    const blur = document.querySelector('#blur');
+    const base = document.querySelector('#base');
+    const img = document.querySelector('img');
+
+
+    spacing.addEventListener('change', () => {
+      img.style.setProperty('--spacing', `${spacing.value}px`)
+    });
+    spacing.addEventListener('mousemove', () => {
+      img.style.setProperty('--spacing', `${spacing.value}px`)
+    });
+
+    blur.addEventListener('change', () => {
+      img.style.setProperty('--blur', `${blur.value}px`)
+    });
+    blur.addEventListener('mousemove', () => {
+      img.style.setProperty('--blur', `${blur.value}px`)
+    });
+
+
+    base.addEventListener('change', () => {
+      img.style.setProperty('--base', `${base.value}`)
+    });
+    base.addEventListener('mousemove', () => {
+      img.style.setProperty('--base', `${base.value}`)
+    });
+    
+    
+
+
+
   </script>
 
 </body>
